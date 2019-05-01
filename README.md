@@ -1,7 +1,7 @@
 # How To Train Object Detection Model Using TensorFlow GPU on Windows 10
 
 ## Introduction
-This is a tutorial on how to train your own object detection model. If you are starting from the scratch, I recommend that you go through this tutorial first [tutorial on Youtube](https://www.youtube.com/watch?v=Rgpfk6eYxJA).
+This is a tutorial on how to train your own object detection model. If you are starting from the scratch, I recommend that you reference this [tutorial on Youtube](https://www.youtube.com/watch?v=Rgpfk6eYxJA).
 
 ## Set up Anaconda enviroment
 In order to train an object detection model using tensorflow, you need to setup Anaconda enviroment and install TensorFlow-GPU.
@@ -15,17 +15,23 @@ Here are some helpful links to setup tensorflow GPU
 ## Test Door Detection Model
 Once you have installed tensorflow GPU and Anaconda enviroment setup, test out my door detection model.
 
-Go to my github [repository](https://github.com/buzz7290/IHMC-ObjectDetection/tree/master/IHMC-ObjectDetection)
-
 - Make a new folder in your C: drive named tensorflow1
-- download models folders and put it inside tensorflow1
+- Download the full TensorFlow object detection repository located at
+https://github.com/tensorflow/models by clicking the “Clone or Download” button and downloading the zip file.
+- Open the downloaded zip file and extract the “models-master” folder directly into the C:\tensorflow1 directory you just created.
+- Rename “models-master” to just “models”.
+
+Download this repository
+
+- copy all files and paste them to C:\tensorflow1\models\research\object_detection folder
+- move image_util.py and object_enum.py files to utils folder
 - open Object_detector file in models/research/object_detection folder
 - change directory for saving images in line 77 and 99.
 
 
 To test it out,
 - open up Object_detection_server in models/research/object_detection
-- type in host ip and port value. Run Python server.
+- type in host ip and port. Run Python server.
 
 <p align="center">
   <img src="doc/serverwaiting.PNG">
@@ -33,7 +39,7 @@ To test it out,
 
 - download socket folder in the repository
 - open it up using Eclipse or IntelliJ.
-- type in local host ip and the same port value.
+- type in local host ip and the same port.
 
 <p align="center">
   <img src="doc/socketscreenshot.png">
@@ -64,7 +70,7 @@ If you want to train your own models for other objects, follow these steps below
 - Empty inference_graph folder (or if you want to keep door detection model, name frozen_inference_graph differently and keep it so you can call this file when you want to use detect door. You can delete everyting else.)
 - Empty images/train and images/test folders. Also delete two csv files in images folder.
 - delete all files in training folder *except* faster_rcnn_inception_v2_pets.config file and labelmap.pbtxt file.
-- delete train.record and test.record in object_detection folder
+
 ### 1. Gather and Label Pictures
 
 #### 1a. Gathering Pictures
